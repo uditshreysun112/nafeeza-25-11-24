@@ -54,6 +54,36 @@ body{
 	font-size:14px;
 	color:#888;
 }
+/* Preloader container fills the screen */
+.preloader {
+	position: fixed !important;
+	top: 0 !important;
+	left: 0 !important;
+	width: 100vw !important;
+	height: 100vh !important;
+	background-color: #ffffff; /* Adjust background color */
+	display: flex !important;
+	justify-content: center !important;
+	align-items: center !important;
+	z-index: 9999; /* Ensures it overlays other content */
+}
+
+/* Loader itself */
+.loader {
+	display: flex !important;
+	justify-content: center !important;
+	align-items: center !important;
+}
+
+/* Optional: Add transition or animation */
+.loader svg {
+	animation: fadeIn 1s ease-in-out infinite;
+}
+
+@keyframes fadeIn {
+	0%, 100% { opacity: 0.8; }
+	50% { opacity: 1; }
+}
 .pro-features {
 	position: fixed;
 	right: -300px;
@@ -598,6 +628,7 @@ body{
 	background-size: cover;
 	background-position: center;
 	background-repeat:no-repeat;
+	/* background:rgba(41, 98, 188, 0.811); */
 }
 .slider .single-slider .text{
 	margin-top:120px;
@@ -1735,6 +1766,29 @@ body{
 	float: none;
 	padding: 0 35px;
 }
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .clients {
+        padding: 50px 0; /* Reduce padding for smaller screens */
+    }
+    .clients .single-clients img {
+        max-width: 120px; /* Smaller images on tablets and small screens */
+        padding: 0 20px; /* Adjust padding for better spacing */
+    }
+	.clients .single-clients{
+		display: flex;
+		justify-content: center;
+		align-items: center;
+	}
+}
+
+@media (max-width: 480px) {
+    .clients .single-clients img {
+        max-width: 100px; /* Even smaller images for mobile devices */
+        padding: 0 10px; /* Further reduce padding */
+    }
+}
+
 /*========================
 	End Clients CSS
 ==========================*/
@@ -4209,6 +4263,62 @@ body{
 }
 .Policy:hover{
 	color: white !important;
+}
+/* FAQ Container */
+.faq-container {
+    margin-top: 20px;
+}
+
+.faq-item {
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    padding: 15px;
+    cursor: pointer;
+    position: relative;
+    background: #f9f9f9;
+    transition: background 0.3s ease;
+}
+
+.faq-item:hover {
+    background: #eef2f7;
+}
+
+.faq-item h3 {
+    font-size: 18px;
+    margin: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.faq-item .faq-content {
+    max-height: 0; /* Collapsed by default */
+    overflow: hidden; /* Hide content when collapsed */
+    opacity: 0; /* Invisible when collapsed */
+    margin-top: 0;
+    font-size: 16px;
+    color: #555;
+    transition: max-height 0.5s ease, opacity 0.5s ease, margin-top 0.5s ease;
+}
+
+.faq-item.active .faq-content {
+    max-height: 200px; /* Adjust based on expected content size */
+    opacity: 1; /* Fully visible when expanded */
+    margin-top: 10px;
+}
+
+.faq-item .faq-toggle {
+    font-size: 20px;
+    position: absolute;
+    right: 15px;
+    top: 20px;
+    transform: rotate(0deg);
+    transition: transform 0.3s ease;
+}
+
+.faq-item.active .faq-toggle {
+    transform: rotate(90deg); /* Rotates icon on active */
 }
 
 /*=========================
