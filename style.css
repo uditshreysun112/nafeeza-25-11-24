@@ -48,12 +48,15 @@ Version:	1.1
 /*=============================
 	Global CSS 
 ===============================*/
+:root{
+	scroll-behavior: smooth;
+}
 body{
     font-family: 'Poppins', sans-serif;
 	font-weight: 400;
 	font-size:14px;
 	color:#888;
-}
+	}
 /* Preloader container fills the screen */
 .preloader {
 	position: fixed !important;
@@ -4368,10 +4371,10 @@ body{
 
 .new-courses {
 	/* background-color: #2a2a2a; */
-	background: linear-gradient(to bottom, #1e3c72, #4771bb);
+	background: linear-gradient(to bottom, #1e3c72, #7198da);
 	color: white;
     font-size: 15px;
-    padding: 8px;
+    padding: 10px;
     overflow: hidden;
     user-select: none;
     display: flex;
@@ -4392,9 +4395,16 @@ body{
 
 .new-courses:hover ul {
     animation-play-state: paused; /* Pause animation on hover */
+	
+
+}
+.new-courses a{
+	padding: 4px 10px;
 }
 .new-courses a:hover {
-    color: rgb(255, 0, 0);
+    /* color: rgb(255, 0, 0); */
+	padding: 4px 10px;
+	background: linear-gradient(to top, #1e3c72, #7198da);
 	
 }
 
