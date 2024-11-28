@@ -197,7 +197,7 @@
 								10th pass candidates only apply for GP Rating Course. <br>Total 40% marks + English and Maths 40% marks is eligibility ,Age limit 17.5 - 27</p>
 								<!-- <a href="#" class="btn btn-primary" style="color: white;">Apply</a> -->
 						  <div class="text-start mt-4">
-							<a href="#" class="btn btn-primary pb-2 pt-2" style="color: white;">Apply Now</a>
+							<a href="#" class="btn btn-primary pb-2 pt-2" style="color: white;" data-bs-toggle="modal" data-bs-target="#applyModal" onclick="setCourseName('General Purpose Rating (GPR)')">Apply Now</a>
 						</div> 
 						</div>
 					</div>
@@ -296,7 +296,7 @@
 							 Plus Two Science Group Physics 60%, Chemistry 60% & Maths 60% Marks Compulsory.</p>
 						  <!-- <a href="#" class="btn btn-primary" style="color: white;">Apply</a> -->
 						  <div class="text-start mt-4">
-							<a href="#" class="btn btn-primary pb-2 pt-2" style="color: white;">Apply Now</a>
+							<button id="openFormButton" class="btn btn-primary">Apply Now</button>
 						</div> 
 						</div>
 					</div>
@@ -304,8 +304,74 @@
 			</div>
 			</div>  
 		</section>
+
+		<a href="#" class="btn btn-primary pb-2 pt-2" style="color: white;" data-bs-toggle="modal" data-bs-target="#applyModal" onclick="setCourseName('General Purpose Rating (GPR)')">Apply Now</a>
+
+
+		<!-- mmodal -->
+
+<!-- Modal Structure -->
+<!-- Pop-up Form -->
+<div id="popupForm" class="form-popup">
+	<div class="form-container">
+	  <h2>Student Details</h2>
+	  <form id="studentForm">
+		<label for="name">Full Name:</label>
+		<input type="text" id="name" placeholder="Enter your full name" required>
+		
+		<label for="email">Email:</label>
+		<input type="email" id="email" placeholder="Enter your email" required>
+		
+		<label for="phone">Phone:</label>
+		<input type="tel" id="phone" placeholder="Enter your phone number" required>
+		
+		<label for="course-name">Course:</label>
+		<input type="text" id="course-name" placeholder="Enter your course" required>
+		
+		<button  type="submit" class="btn btn-success">Submit</button>
+		<button type="button" id="closeFormButton" class="btn btn-danger">Close</button>
+	  </form>
+	</div>
+  </div>
+  <script>
+	// Get elements
+	const openFormButton = document.getElementById('openFormButton');
+	const closeFormButton = document.getElementById('closeFormButton');
+	const popupForm = document.getElementById('popupForm');
+	const studentForm = document.getElementById('studentForm');
+  
+	// Open form when the button is clicked
+	openFormButton.addEventListener('click', () => {
+	  popupForm.style.display = 'block';
+	});
+  
+	// Close form when the close button is clicked
+	closeFormButton.addEventListener('click', () => {
+	  popupForm.style.display = 'none';
+	});
+  
+	// Handle form submission
+	studentForm.addEventListener('submit', (e) => {
+	  e.preventDefault();
+	  const name = document.getElementById('name').value;
+	  const email = document.getElementById('email').value;
+	  const phone = document.getElementById('phone').value;
+	  const course = document.getElementById('course').value;
+  
+	  // Here, you can send data to a server or process it further
+	  alert(`Application submitted for ${name}. We will contact you at ${email}.`);
+	  
+	  // Reset the form and close it
+	  studentForm.reset();
+	  popupForm.style.display = 'none';
+	});
+  </script>
+  
+
+  
+<!-- modal close  -->
         <!-- Start clients -->
-		<div class="clients overlay">
+		<!-- <div class="clients overlay">
 			<div class="container">
 				<div class="row">
 					<div class="col-lg-12 col-md-12 col-12">
@@ -338,7 +404,7 @@
 					</div>
 				</div>
 			</div>
-		</div>
+		</div> -->
 		<!--/Ens clients -->
         <!-- Start Appointment -->
 		<section class="appointment  " style="padding-bottom: 80px; background-color: rgb(211, 211, 211);">
